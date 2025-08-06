@@ -30,12 +30,20 @@ reusable functions that solve specific tasks. This activity encourages:
 // - Takes a name and a role (e.g., "Alice", "speaker")
 // - Returns a string in the format: "Name: Alice, Role: Speaker"
 
+
 // Steps:
 // 1. Define the function with two parameters.
 // 2. Format the output string properly.
 // 3. Capitalize the role if needed.
 // 4. Return the result.
 
+function generateAttendeeBadge(name, role) {
+    let capitalRole = role.charAt(0).toUpperCase() + role.slice(1).toLowerCase(); // role.charAt(0) gets the first letter and .UpperCase() turns it to uppercase. role.slice(1) starts from position 1 of the string and .LowerCase() makes the rest of the role lowercase.
+    return `Name: ${name}, Role: ${capitalRole}`;
+}
+
+
+console.log(generateAttendeeBadge("Ololade", "VIP")); // Name: Ololade, Role: Vip
 
 // ============================================
 // 🧩 Task 2: Calculate Event Cost
@@ -51,6 +59,17 @@ reusable functions that solve specific tasks. This activity encourages:
 // 3. If so, apply a 10% discount.
 // 4. Return the final total.
 
+function calculateEventCost(attendees, costPerAttendee) {
+    let total = attendees * costPerAttendee;
+    if (attendees > 100) {
+        total *= 0.9;
+    }
+    return total;
+}
+
+console.log(calculateEventCost(125, 30)); // 125 * 30 = 3750 ... 10% off = 3375.
+console.log(calculateEventCost(50, 30)); // 50 * 30 = 1500... attendee count is less than 100.
+
 
 // ============================================
 // 🧩 Task 3: Validate Email
@@ -64,7 +83,12 @@ reusable functions that solve specific tasks. This activity encourages:
 // 1. Check if the string includes both "@" and ".".
 // 2. Return true or false accordingly.
 
+function isValidEmail(email) {
+    return email.includes("@") && email.includes(".");
+}
 
+console.log(isValidEmail("ololade@gmail.com")); // true
+console.log(isValidEmail("ololade.com")); // false
 // ============================================
 // 🧠 Collaborative Steps
 // ============================================
